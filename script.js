@@ -8,6 +8,7 @@ const users = [];
 
 const form = document.getElementById("rubrica-form");
 form.addEventListener("submit", function (e) {
+  e.preventDefault();
   const firstName = document.getElementById("firstName").value;
 
   const row = document.getElementById("contacts-row");
@@ -25,5 +26,8 @@ form.addEventListener("submit", function (e) {
 
   const newUser = new User(firstName);
   users.push(newUser);
-  console.log(users);
+
+  localStorage.setItem("users", JSON.stringify(users));
 });
+
+console.log(users);
